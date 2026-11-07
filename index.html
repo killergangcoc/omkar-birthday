@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Omkar! 🎂✨</title>
+
+  <!-- Google Fonts: Fredoka & Patrick Hand for authentic cute handwriting aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <div class="device-container">
+    <!-- Red and white gingham borders identical to video -->
+    <div class="gingham-border border-left"></div>
+    <div class="gingham-border border-right"></div>
+
+    <!-- Top Corner Audio Toggle Button -->
+    <div class="top-controls">
+      <button class="icon-btn" id="audioToggleBtn" title="Play celebration music">🎵</button>
+    </div>
+
+    <!-- MAIN INTERACTIVE SCREENS CONTAINER -->
+    <div class="screen-stage">
+
+      <!-- ==============================================
+           SCREEN 1: PASSCODE LOCK
+      ============================================== -->
+      <section class="screen active" id="screenPasscode">
+        <div class="passcode-layout">
+          <!-- Left Heart Shinchan Frame -->
+          <div class="heart-frame-box">
+            <!-- Decorative Gold Filigree Heart Frame -->
+            <svg class="heart-lace-border" viewBox="0 0 200 200" fill="none">
+              <path d="M100,180 C20,110 0,60 40,25 C75,-5 95,20 100,32 C105,20 125,-5 160,25 C200,60 180,110 100,180 Z" 
+                    fill="#FFF3B0" stroke="#E09F3E" stroke-width="6" stroke-dasharray="3,3" />
+              <path d="M100,165 C35,105 15,62 48,32 C78,5 95,26 100,36 C105,26 122,5 152,32 C185,62 165,105 100,165 Z" 
+                    fill="#FFFDF0" stroke="#D4A373" stroke-width="2" />
+            </svg>
+            <!-- Shinchan holding birthday cake SVG vector artwork -->
+            <svg width="150" height="150" viewBox="0 0 160 160" style="z-index: 2;">
+              <!-- Shinchan head / chubby cheek -->
+              <ellipse cx="78" cy="88" rx="42" ry="36" fill="#FCD5B5" />
+              <path d="M42,82 C34,92 38,108 55,114 C62,116 80,118 95,110 C108,102 118,85 110,72 C105,62 90,60 78,60 C60,60 48,70 42,82 Z" fill="#FCD5B5" />
+              <!-- Hair -->
+              <path d="M42,80 C38,62 55,48 85,50 C110,52 118,65 112,74 C110,70 102,60 84,60 C66,60 50,68 42,80 Z" fill="#1C1917" />
+              <!-- Bold Iconic Eyebrows -->
+              <path d="M52,66 C60,62 72,64 78,67" stroke="#1C1917" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <path d="M92,66 C98,63 110,64 116,68" stroke="#1C1917" stroke-width="7" stroke-linecap="round" fill="none"/>
+              <!-- Big Cute Eyes -->
+              <ellipse cx="68" cy="78" rx="8" ry="10" fill="#1C1917"/>
+              <ellipse cx="66" cy="75" rx="3" ry="4" fill="#FFFFFF"/>
+              <ellipse cx="102" cy="78" rx="8" ry="10" fill="#1C1917"/>
+              <ellipse cx="100" cy="75" rx="3" ry="4" fill="#FFFFFF"/>
+              <!-- Rosy Blush Cheek -->
+              <ellipse cx="48" cy="98" rx="9" ry="6" fill="#FFAAA6" opacity="0.8"/>
+              <ellipse cx="112" cy="96" rx="9" ry="6" fill="#FFAAA6" opacity="0.8"/>
+              <!-- Mouth -->
+              <path d="M78,98 Q84,105 90,98" stroke="#9d0208" stroke-width="3" stroke-linecap="round" fill="none"/>
+              <!-- Party Hat -->
+              <polygon points="78,28 64,56 94,54" fill="#FF5964" stroke="#FFF" stroke-width="2"/>
+              <circle cx="78" cy="26" r="5" fill="#FFD166"/>
+              <!-- Mini Birthday Cake with Candle held in hands -->
+              <g transform="translate(48, 108)">
+                <rect x="10" y="20" width="44" height="22" rx="4" fill="#FFB703"/>
+                <path d="M8,20 Q32,28 56,20" stroke="#FFF" stroke-width="6" stroke-linecap="round"/>
+                <!-- Candle -->
+                <rect x="29" y="8" width="6" height="12" fill="#E63946"/>
+                <!-- Lit Candle Flame -->
+                <path d="M32,2 Q36,6 32,8 Q28,6 32,2" fill="#FFBE0B" class="candle-flame"/>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Right Keypad Dial -->
+          <div class="keypad-section">
+            <h2 class="keypad-title">Enter a passcode</h2>
+            <div class="pin-display-dots">
+              <div class="pin-box" id="pin0"></div>
+              <div class="pin-box" id="pin1"></div>
+              <div class="pin-box" id="pin2"></div>
+              <div class="pin-box" id="pin3"></div>
+            </div>
+
+            <div class="dial-grid">
+              <button class="dial-key" onclick="pressKey('1')">1</button>
+              <button class="dial-key" onclick="pressKey('2')">2</button>
+              <button class="dial-key" onclick="pressKey('3')">3</button>
+              <button class="dial-key" onclick="pressKey('4')">4</button>
+              <button class="dial-key" onclick="pressKey('5')">5</button>
+              <button class="dial-key" onclick="pressKey('6')">6</button>
+              <button class="dial-key" onclick="pressKey('7')">7</button>
+              <button class="dial-key" onclick="pressKey('8')">8</button>
+              <button class="dial-key" onclick="pressKey('9')">9</button>
+              <button class="dial-key special" onclick="clearPin()">C</button>
+              <button class="dial-key" onclick="pressKey('0')">0</button>
+              <button class="dial-key special" onclick="deletePin()">⌫</button>
+            </div>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Hint: Default PIN is 1234 or 2026</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN: WRONG PASSCODE
+      ============================================== -->
+      <section class="screen" id="screenWrong">
+        <div class="teaser-card">
+          <h1 class="wrong-title">WRONG PASSCODE</h1>
+          <!-- Shinchan holding 'X' sign -->
+          <svg width="180" height="180" viewBox="0 0 160 160">
+            <ellipse cx="80" cy="75" rx="38" ry="32" fill="#FCD5B5"/>
+            <path d="M46,65 C40,50 60,40 85,42 C108,44 115,55 110,64 C100,52 75,52 46,65 Z" fill="#1C1917" />
+            <path d="M54,58 C62,54 72,56 78,59" stroke="#1C1917" stroke-width="6" stroke-linecap="round"/>
+            <path d="M88,58 C96,55 106,57 112,61" stroke="#1C1917" stroke-width="6" stroke-linecap="round"/>
+            <ellipse cx="66" cy="70" rx="7" ry="8" fill="#1C1917"/>
+            <ellipse cx="64" cy="68" rx="2" ry="3" fill="#FFF"/>
+            <ellipse cx="98" cy="70" rx="7" ry="8" fill="#1C1917"/>
+            <ellipse cx="96" cy="68" rx="2" ry="3" fill="#FFF"/>
+            <ellipse cx="82" cy="86" rx="6" ry="8" fill="#9d0208"/>
+            <path d="M50,105 L112,105 L106,145 L56,145 Z" fill="#E63946"/>
+            <g transform="translate(100, 45) rotate(10)">
+              <rect x="0" y="0" width="45" height="36" rx="6" fill="#FFF" stroke="#2B2D42" stroke-width="3"/>
+              <line x1="22" y1="36" x2="22" y2="70" stroke="#8D99AE" stroke-width="4" stroke-linecap="round"/>
+              <path d="M10,8 L35,28 M35,8 L10,28" stroke="#D90429" stroke-width="5" stroke-linecap="round"/>
+            </g>
+          </svg>
+          <div style="margin-top: 18px;">
+            <button class="btn-bubbly" onclick="goToScreen('screenPasscode')">TRY AGAIN</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 2A: TEASER - "Do you wanna see it?"
+      ============================================== -->
+      <section class="screen" id="screenTeaserA">
+        <div class="teaser-card">
+          <h2 class="curved-title">I have made something for you...</h2>
+          
+          <svg width="180" height="170" viewBox="0 0 160 160">
+            <ellipse cx="76" cy="70" rx="38" ry="32" fill="#FCD5B5"/>
+            <path d="M42,60 C38,45 56,36 80,38 C102,40 110,50 106,60 C98,48 72,48 42,60 Z" fill="#1C1917"/>
+            <path d="M52,54 C60,50 70,52 76,55" stroke="#1C1917" stroke-width="6" stroke-linecap="round"/>
+            <path d="M86,54 C94,51 104,53 110,57" stroke="#1C1917" stroke-width="6" stroke-linecap="round"/>
+            <path d="M58,68 Q66,60 74,68" stroke="#1C1917" stroke-width="4" fill="none"/>
+            <path d="M90,68 Q98,60 106,68" stroke="#1C1917" stroke-width="4" fill="none"/>
+            <ellipse cx="50" cy="78" rx="7" ry="5" fill="#FFAAA6"/>
+            <ellipse cx="106" cy="78" rx="7" ry="5" fill="#FFAAA6"/>
+            <path d="M74,82 Q82,90 90,82" stroke="#9d0208" stroke-width="3" fill="#D90429"/>
+            <path d="M48,98 L104,98 L98,138 L54,138 Z" fill="#E63946"/>
+            <path d="M54,138 L98,138 L94,152 L58,152 Z" fill="#FFD166"/>
+          </svg>
+
+          <h3 class="subtitle-question">Do you wanna see it?</h3>
+          <div class="btn-row">
+            <button class="btn-bubbly" onclick="goToScreen('screenTeaserB')">YES</button>
+            <button class="btn-bubbly" style="background: #6c757d; border-color: #ced4da; box-shadow: 0 6px 0 #495057;" onclick="goToScreen('screenHowDare')">NO</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 2-NO: "HOW DARE YOU?!"
+      ============================================== -->
+      <section class="screen" id="screenHowDare">
+        <div class="teaser-card">
+          <h1 class="wrong-title" style="color: #9d0208; font-size: 2.8rem;">HOW DARE YOU!?</h1>
+          <svg width="200" height="160" viewBox="0 0 180 140">
+            <g transform="translate(90, 75) rotate(175)">
+              <ellipse cx="0" cy="-20" rx="28" ry="24" fill="#FCD5B5"/>
+              <path d="M-20,-10 C-30,5 -20,25 0,25 C20,25 30,5 20,-10 Z" fill="#FFD166"/>
+              <rect x="-24" y="-45" width="48" height="28" rx="6" fill="#E63946"/>
+              <ellipse cx="-18" cy="35" rx="8" ry="12" fill="#FCD5B5"/>
+              <ellipse cx="18" cy="35" rx="8" ry="12" fill="#FCD5B5"/>
+            </g>
+          </svg>
+          <div style="margin-top: 20px;">
+            <button class="btn-bubbly" onclick="goToScreen('screenTeaserA')">TRY AGAIN</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 2B: "Are you really excited?" (Both YES)
+      ============================================== -->
+      <section class="screen" id="screenTeaserB">
+        <div class="teaser-card">
+          <h2 class="curved-title" style="font-size: 2.6rem;">Are you really excited? 🙈</h2>
+          <svg width="180" height="160" viewBox="0 0 160 160">
+            <ellipse cx="78" cy="74" rx="38" ry="32" fill="#FCD5B5"/>
+            <path d="M52,56 C60,54 70,58 76,62" stroke="#1C1917" stroke-width="6" stroke-linecap="round"/>
+            <path d="M86,62 C92,58 102,54 110,56" stroke="#1C1917" stroke-width="6" stroke-linecap="round"/>
+            <ellipse cx="66" cy="72" rx="7" ry="8" fill="#1C1917"/>
+            <ellipse cx="64" cy="70" rx="3" ry="3" fill="#FFF"/>
+            <ellipse cx="98" cy="72" rx="7" ry="8" fill="#1C1917"/>
+            <ellipse cx="96" cy="70" rx="3" ry="3" fill="#FFF"/>
+            <ellipse cx="48" cy="80" rx="10" ry="7" fill="#FF85A1"/>
+            <ellipse cx="108" cy="80" rx="10" ry="7" fill="#FF85A1"/>
+            <ellipse cx="44" cy="84" rx="8" ry="12" fill="#FCD5B5" stroke="#E09F3E" stroke-width="1.5"/>
+            <ellipse cx="112" cy="84" rx="8" ry="12" fill="#FCD5B5" stroke="#E09F3E" stroke-width="1.5"/>
+            <path d="M48,104 L108,104 L102,142 L54,142 Z" fill="#E63946"/>
+          </svg>
+
+          <div class="btn-row" style="margin-top: 18px;">
+            <button class="btn-bubbly btn-jitter" onclick="enterGiftHub()">YES 💕</button>
+            <button class="btn-bubbly btn-jitter" onclick="enterGiftHub()">YES 🎂</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 3: THE GIFT HUB
+      ============================================== -->
+      <section class="screen" id="screenGiftHub">
+        <h2 class="gift-hub-title">Each gift has something for you, Omkar... 🎁</h2>
+        
+        <!-- 5 Pink Clickable Gift Boxes -->
+        <div class="gifts-container">
+          <div class="gift-item" onclick="openGiftModal('modalCard')">
+            <svg width="86" height="86" viewBox="0 0 100 100">
+              <rect x="18" y="38" width="64" height="52" rx="8" fill="#FF8FA3"/>
+              <rect x="14" y="26" width="72" height="16" rx="4" fill="#FF758F"/>
+              <rect x="44" y="26" width="12" height="64" fill="#FFE066"/>
+              <ellipse cx="40" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(-25 40 22)"/>
+              <ellipse cx="60" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(25 60 22)"/>
+              <circle cx="50" cy="23" r="5" fill="#FA8F54"/>
+            </svg>
+            <span class="gift-label">1. Card</span>
+          </div>
+
+          <div class="gift-item" onclick="openGiftModal('modalCake')">
+            <svg width="86" height="86" viewBox="0 0 100 100">
+              <rect x="18" y="38" width="64" height="52" rx="8" fill="#FF8FA3"/>
+              <rect x="14" y="26" width="72" height="16" rx="4" fill="#FF758F"/>
+              <rect x="44" y="26" width="12" height="64" fill="#FFE066"/>
+              <ellipse cx="40" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(-25 40 22)"/>
+              <ellipse cx="60" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(25 60 22)"/>
+              <circle cx="50" cy="23" r="5" fill="#FA8F54"/>
+            </svg>
+            <span class="gift-label">2. Make A Wish</span>
+          </div>
+
+          <div class="gift-item" onclick="openGiftModal('modalMemories')">
+            <svg width="86" height="86" viewBox="0 0 100 100">
+              <rect x="18" y="38" width="64" height="52" rx="8" fill="#FF8FA3"/>
+              <rect x="14" y="26" width="72" height="16" rx="4" fill="#FF758F"/>
+              <rect x="44" y="26" width="12" height="64" fill="#FFE066"/>
+              <ellipse cx="40" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(-25 40 22)"/>
+              <ellipse cx="60" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(25 60 22)"/>
+              <circle cx="50" cy="23" r="5" fill="#FA8F54"/>
+            </svg>
+            <span class="gift-label">3. Memories</span>
+          </div>
+
+          <div class="gift-item" onclick="openGiftModal('modalLetter')">
+            <svg width="86" height="86" viewBox="0 0 100 100">
+              <rect x="18" y="38" width="64" height="52" rx="8" fill="#FF8FA3"/>
+              <rect x="14" y="26" width="72" height="16" rx="4" fill="#FF758F"/>
+              <rect x="44" y="26" width="12" height="64" fill="#FFE066"/>
+              <ellipse cx="40" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(-25 40 22)"/>
+              <ellipse cx="60" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(25 60 22)"/>
+              <circle cx="50" cy="23" r="5" fill="#FA8F54"/>
+            </svg>
+            <span class="gift-label">4. Bestie Letter</span>
+          </div>
+
+          <div class="gift-item" onclick="openGiftModal('modalReel')">
+            <svg width="86" height="86" viewBox="0 0 100 100">
+              <rect x="18" y="38" width="64" height="52" rx="8" fill="#FF8FA3"/>
+              <rect x="14" y="26" width="72" height="16" rx="4" fill="#FF758F"/>
+              <rect x="44" y="26" width="12" height="64" fill="#FFE066"/>
+              <ellipse cx="40" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(-25 40 22)"/>
+              <ellipse cx="60" cy="22" rx="12" ry="8" fill="#FFD166" transform="rotate(25 60 22)"/>
+              <circle cx="50" cy="23" r="5" fill="#FA8F54"/>
+            </svg>
+            <span class="gift-label">5. Cutie In Frame</span>
+          </div>
+        </div>
+
+        <p style="font-family: 'Patrick Hand'; font-size: 1.4rem; color: #d90429; font-weight: bold;">
+          CLICK ON THE GIFTS 👆
+        </p>
+
+        <!-- Right Arrow to go to bonus screen -->
+        <button class="gift-nav-next" onclick="goToScreen('screenBonus')" title="See next surprise">❯</button>
+      </section>
+
+      <!-- ==============================================
+           SCREEN 4: BONUS "US IN EVERY UNIVERSE" & FINAL CARD
+      ============================================== -->
+      <section class="screen" id="screenBonus">
+        <h2 style="font-family: 'Patrick Hand', cursive; font-size: 2.2rem; color: #9d0208; margin-bottom: 12px;">
+          "US in every universe" 🪐❤️
+        </h2>
+
+        <!-- Iconic Duos Collage -->
+        <div class="universe-grid">
+          <div class="universe-card">
+            <img src="Images/image9.jpeg" alt="Friends laughing" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Bunny+%26+Avi'">
+            <div class="universe-label">Brothers </div>
+          </div>
+          <div class="universe-card">
+            <img src="Images/image10.jpeg" alt="Brothers in fun" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Baburao+%26+Raju'">
+            <div class="universe-label">Favourite Mam </div>
+          </div>
+          <div class="universe-card">
+            <img src="Images/image11.jpeg" alt="Loyal friendship" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Harry+%26+Hermione'">
+            <div class="universe-label">Girlfriend</div>
+          </div>
+        </div>
+
+        <!-- Final Blessing Card -->
+        <div style="background: white; border: 3px solid #ffccd5; border-radius: 20px; padding: 16px 28px; text-align: center; max-width: 580px; box-shadow: 0 8px 16px rgba(0,0,0,0.06);">
+          <h3 style="color: #c9184a; font-size: 1.6rem; font-weight: 700; margin-bottom: 6px;">
+            May you achieve everything you've been waiting for!
+          </h3>
+          <p style="color: #555; font-size: 1.1rem; font-family: 'Patrick Hand';">
+            Happy Birthday once again, Omkar! You are one of a kind. Keep shining always! ✨
+          </p>
+        </div>
+
+        <div style="margin-top: 16px; display: flex; gap: 14px;">
+          <button class="btn-bubbly" style="padding: 6px 20px; font-size: 1rem;" onclick="goToScreen('screenGiftHub')">❮ BACK TO GIFTS</button>
+          <button class="btn-bubbly" style="padding: 6px 20px; font-size: 1rem; background: #2a9d8f; border-color: #a7c957;" onclick="triggerConfetti()">CELEBRATE 🎉</button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==============================================
+         MODALS FOR GIFTS (1 - 5)
+    ============================================== -->
+    <!-- Modal 1: Happy Birthday Card -->
+    <div class="gift-modal-overlay" id="modalCard">
+      <div class="gift-modal-content">
+        <button class="modal-close-btn" onclick="closeModals()">✕</button>
+        <div class="retro-banner">HAPPY Birthday! 🥳</div>
+        <div class="retro-card">
+          <div class="card-flex">
+            <div class="photo-frame-omkar">
+              <img src="Images/image1.jpeg">
+            </div>
+            <div>
+              <h3 style="font-size: 1.8rem; color: #d90429; margin-bottom: 6px;">Dear Omkar! ❤️</h3>
+              <p style="font-size: 1.25rem; font-family: 'Patrick Hand'; line-height: 1.4; color: #444;">
+                "Wishing you a little bit of happiness, a whole lot of love, pure laughter, and unstoppable joy today and always! Stay the coolest guy ever."
+              </p>
+              <div style="margin-top: 14px; display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 1.4rem;">🎂🎈🎉</span>
+                <span style="background: #ffe3e8; color: #c9184a; font-weight: bold; padding: 4px 12px; border-radius: 20px;">#BestieOmkar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Make a Wish (Cake Candle Blow) -->
+    <div class="gift-modal-overlay" id="modalCake">
+      <div class="gift-modal-content" style="text-align: center;">
+        <button class="modal-close-btn" onclick="closeModals()">✕</button>
+        <h2 style="font-family: 'Patrick Hand'; font-size: 2.4rem; color: #d90429;">MAKE A WISH 🎂</h2>
+        <p style="color: #666; margin-bottom: 10px;">Tap the cake to blow out the candles & make your wish!</p>
+        
+        <div class="cake-container" onclick="blowCandles()">
+          <svg width="260" height="210" viewBox="0 0 260 210">
+            <ellipse cx="130" cy="195" rx="115" ry="12" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="3"/>
+            <rect x="40" y="125" width="180" height="65" rx="12" fill="#FFE5D9"/>
+            <path d="M40,140 Q55,152 70,140 Q85,152 100,140 Q115,152 130,140 Q145,152 160,140 Q175,152 190,140 Q205,152 220,140" stroke="#FF758F" stroke-width="8" fill="none"/>
+            <rect x="70" y="75" width="120" height="52" rx="10" fill="#FFF0F3"/>
+            <path d="M70,88 Q85,98 100,88 Q115,98 130,88 Q145,98 160,88 Q175,98 190,88" stroke="#FFB3C1" stroke-width="6" fill="none"/>
+            
+            <rect x="85" y="48" width="6" height="28" fill="#3A86FF"/>
+            <path id="flame1" class="candle-flame" d="M88,38 Q93,44 88,48 Q83,44 88,38" fill="#FFBE0B"/>
+            <rect x="108" y="45" width="6" height="31" fill="#FF006E"/>
+            <path id="flame2" class="candle-flame" d="M111,35 Q116,41 111,45 Q106,41 111,35" fill="#FFBE0B"/>
+            <rect x="130" y="42" width="6" height="34" fill="#8338EC"/>
+            <path id="flame3" class="candle-flame" d="M133,32 Q138,38 133,42 Q128,38 133,32" fill="#FFBE0B"/>
+            <rect x="152" y="45" width="6" height="31" fill="#FB5607"/>
+            <path id="flame4" class="candle-flame" d="M155,35 Q160,41 155,45 Q150,41 155,35" fill="#FFBE0B"/>
+            <rect x="172" y="48" width="6" height="28" fill="#06D6A0"/>
+            <path id="flame5" class="candle-flame" d="M175,38 Q180,44 175,48 Q170,44 175,38" fill="#FFBE0B"/>
+          </svg>
+          <div id="cakeWishNotice" style="margin-top: 10px; font-weight: bold; color: #e63946; font-size: 1.2rem;">
+            💨 Tap the cake to blow candles!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Memories (Polaroids Clothesline) -->
+    <div class="gift-modal-overlay" id="modalMemories">
+      <div class="gift-modal-content">
+        <button class="modal-close-btn" onclick="closeModals()">✕</button>
+        <h2 style="font-family: 'Patrick Hand'; font-size: 2.3rem; color: #9d0208; margin-bottom: 6px;">
+          M E M O R I E S 📷
+        </h2>
+        <div class="clothesline-wrapper">
+          <div class="rope-line"></div>
+          <div class="polaroids-row">
+            <div class="polaroid">
+              <div class="clothespin"></div>
+              <img src="Images/image2.jpeg" alt="Memory 1" onerror="this.src='https://placehold.co/200x200/ffe3e8/d90429?text=Trip'">
+              <div style="font-family: 'Patrick Hand'; text-align: center; font-size: 0.9rem; margin-top: 6px;">Best Day!</div>
+            </div>
+            <div class="polaroid">
+              <div class="clothespin"></div>
+              <img src="Images/image3.jpeg" alt="Memory 2" onerror="this.src='https://placehold.co/200x200/ffe3e8/d90429?text=Omkar'">
+              <div style="font-family: 'Patrick Hand'; text-align: center; font-size: 0.9rem; margin-top: 6px;">Model Vibe ✨</div>
+            </div>
+            <div class="polaroid">
+              <div class="clothespin"></div>
+              <img src="Images/image4.jpeg" alt="Memory 3" onerror="this.src='https://placehold.co/200x200/ffe3e8/d90429?text=Crazy+Times'">
+              <div style="font-family: 'Patrick Hand'; text-align: center; font-size: 0.9rem; margin-top: 6px;">Unstoppable 🔥</div>
+            </div>
+            <div class="polaroid">
+              <div class="clothespin"></div>
+              <img src="Images/image5.jpeg" alt="Memory 4" onerror="this.src='https://placehold.co/200x200/ffe3e8/d90429?text=Bro'">
+              <div style="font-family: 'Patrick Hand'; text-align: center; font-size: 0.9rem; margin-top: 6px;">Forever Bros 🤝</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Bestie Letter -->
+    <div class="gift-modal-overlay" id="modalLetter">
+      <div class="gift-modal-content">
+        <button class="modal-close-btn" onclick="closeModals()">✕</button>
+        <div class="letter-paper">
+          <h3 style="font-size: 2rem; color: #d90429; font-family: 'Caveat'; margin-bottom: 8px;">My fav person ❤️</h3>
+          <p><strong>Dear bestie, Omkar</strong></p>
+          <p>Happy Birthday, Bestie! 🎉</p>
+          <p>I honestly don't know how to put into words how grateful I am to have you in my life. Thank you for always being my biggest supporter, partner in crime, and the person I can turn to anytime.</p>
+          <p>Through all the laughs, random late-night conversations, crazy inside jokes, and even the tough days, you've made life 100x better by simply being a part of it.</p>
+          <p>I hope this year brings you everything you've dreamed of: massive success, peace, good health, and countless reasons to smile. Never forget how awesome, kind, and loved you are.</p>
+          <p style="margin-top: 10px;">Have the happiest birthday! Love you bro! 🫂❤️</p>
+          
+          <svg class="shinchan-corner-peeker" viewBox="0 0 100 100">
+            <ellipse cx="50" cy="50" rx="35" ry="30" fill="#FCD5B5"/>
+            <path d="M22,38 C20,25 40,16 65,18 C85,20 90,30 85,38 C75,26 50,26 22,38 Z" fill="#1C1917"/>
+            <path d="M30,32 C38,30 46,32 52,35" stroke="#1C1917" stroke-width="5" stroke-linecap="round"/>
+            <path d="M60,35 C68,32 76,34 82,37" stroke="#1C1917" stroke-width="5" stroke-linecap="round"/>
+            <ellipse cx="42" cy="45" rx="6" ry="7" fill="#1C1917"/>
+            <ellipse cx="40" cy="43" rx="2" ry="2" fill="#FFF"/>
+            <ellipse cx="68" cy="45" rx="6" ry="7" fill="#1C1917"/>
+            <ellipse cx="66" cy="43" rx="2" ry="2" fill="#FFF"/>
+            <ellipse cx="28" cy="55" rx="8" ry="5" fill="#FFAAA6"/>
+            <ellipse cx="78" cy="55" rx="8" ry="5" fill="#FFAAA6"/>
+            <path d="M50,56 Q56,62 62,56" stroke="#9d0208" stroke-width="3" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Cutie In Frame (Slideshow) -->
+    <div class="gift-modal-overlay" id="modalReel">
+      <div class="gift-modal-content" style="text-align: center;">
+        <button class="modal-close-btn" onclick="closeModals()">✕</button>
+        <h2 style="font-family: 'Patrick Hand'; font-size: 2.3rem; color: #d90429; margin-bottom: 8px;">
+          CUTIE, IN FRAME 📸😎
+        </h2>
+        
+        <!-- Locate this block around line 310 -->
+<div class="slideshow-box">
+  <img id="reelSlideImg" class="slideshow-img" src="images/image6.jpeg" alt="Omkar Candid">
+  <button class="slide-btn slide-prev" onclick="prevSlide()">❮</button>
+  <button class="slide-btn slide-next" onclick="nextSlide()">❯</button>
+</div>
+        
+        <p id="slideCaption" style="font-weight: 600; color: #e63946; margin-top: 10px; font-size: 1.1rem;">
+          Cricket is Love ✨
+        </p>
+        <div style="margin-top: 8px;">
+          <button class="btn-bubbly" style="padding: 6px 20px; font-size: 1rem;" onclick="nextSlide()">CLICK ME! 😜</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
