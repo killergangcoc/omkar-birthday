@@ -258,3 +258,18 @@ window.addEventListener('keydown', (e) => {
     clearPin();
   }
 });
+
+/* ========================================================
+   UNIVERSE MODAL HANDLERS
+======================================================== */
+function openUniverseModal(modalId) {
+  playTone(480, 0.1);
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add('open');
+  }
+}
+
+function closeUniverseModals() {
+  document.querySelectorAll('.gift-modal-overlay').forEach(m => m.classList.remove('open'));
+}

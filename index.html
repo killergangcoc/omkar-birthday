@@ -302,19 +302,21 @@
           "US in every universe" 🪐❤️
         </h2>
 
-        <!-- Iconic Duos Collage -->
+        <!-- Clickable Universe Cards -->
         <div class="universe-grid">
-          <div class="universe-card">
-            <img src="Images/image9.jpeg" alt="Friends laughing" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Bunny+%26+Avi'">
-            <div class="universe-label">Brothers </div>
+          <div class="universe-card universe-clickable" onclick="openUniverseModal('modalBrothers')">
+            <img src="Images/image9.jpeg" alt="Brothers" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Brothers'">
+            <div class="universe-label">Brothers 📸</div>
           </div>
-          <div class="universe-card">
-            <img src="Images/image10.jpeg" alt="Brothers in fun" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Baburao+%26+Raju'">
-            <div class="universe-label">Favourite Mam </div>
+
+          <div class="universe-card universe-clickable" onclick="openUniverseModal('modalMam')">
+            <img src="Images/image10.jpeg" alt="Favourite Mam" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Favourite+Mam'">
+            <div class="universe-label">Favourite Mam ✨</div>
           </div>
-          <div class="universe-card">
-            <img src="Images/image11.jpeg" alt="Loyal friendship" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Harry+%26+Hermione'">
-            <div class="universe-label">Girlfriend</div>
+
+          <div class="universe-card universe-clickable" onclick="openUniverseModal('modalGf')">
+            <img src="Images/image11.jpeg" alt="Girlfriend" onerror="this.src='https://placehold.co/300x200/ffe3e8/d90429?text=Girlfriend'">
+            <div class="universe-label">Girlfriend ❤️</div>
           </div>
         </div>
 
@@ -485,7 +487,64 @@
         </div>
       </div>
     </div>
+<!-- Universe Pop-up Modals -->
+    <!-- 1. Brothers Modal (Horizontal Scroll Bar) -->
+    <div class="gift-modal-overlay" id="modalBrothers">
+      <div class="gift-modal-content universe-modal-box">
+        <button class="modal-close-btn" onclick="closeUniverseModals()">✕</button>
+        <h2 class="universe-modal-title">Brothers Forever 🤝</h2>
+        <p class="universe-modal-hint">← Scroll sideways for more photos →</p>
 
+        <div class="horizontal-scroll-gallery">
+          <!-- Photo 1 -->
+          <div class="gallery-photo-card">
+            <img src="Images/image9.jpeg" alt="Brother 1">
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="gallery-photo-card">
+            <img src="Images/image9.1.jpeg" alt="Brother 2">
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="gallery-photo-card">
+            <img src="Images/image9.2.jpeg" alt="Brother 3">
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="gallery-photo-card">
+            <img src="Images/image9.3.jpeg" alt="Brother 4">
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="gallery-photo-card">
+            <img src="Images/image9.4.jpeg" alt="Brother 5">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Favourite Mam Modal (Single Photo) -->
+    <div class="gift-modal-overlay" id="modalMam">
+      <div class="gift-modal-content universe-modal-box">
+        <button class="modal-close-btn" onclick="closeUniverseModals()">✕</button>
+        <h2 class="universe-modal-title">Favourite Mam ✨</h2>
+        <div class="single-floating-photo">
+          <img src="Images/image10.jpeg" alt="Favourite Mam">
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Girlfriend Modal (Single Photo) -->
+    <div class="gift-modal-overlay" id="modalGf">
+      <div class="gift-modal-content universe-modal-box">
+        <button class="modal-close-btn" onclick="closeUniverseModals()">✕</button>
+        <h2 class="universe-modal-title">Girlfriend ❤️</h2>
+        <div class="single-floating-photo">
+          <img src="Images/image11.jpeg" alt="Girlfriend">
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- External JavaScript -->

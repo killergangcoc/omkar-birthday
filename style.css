@@ -666,3 +666,101 @@ body {
   padding: 4px;
   background: #fff;
 }
+/* ========================================================
+   UNIVERSE MODALS & HORIZONTAL SCROLLBAR
+======================================================== */
+.universe-clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.universe-clickable:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.universe-modal-box {
+  max-width: 680px;
+  max-height: 85vh;
+  justify-content: flex-start;
+}
+
+.universe-modal-title {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 2.2rem;
+  color: #9d0208;
+  margin-bottom: 4px;
+}
+
+.universe-modal-hint {
+  font-size: 0.9rem;
+  color: #c9184a;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Horizontal Scroll Container for Brothers */
+.horizontal-scroll-gallery {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 4px 18px 4px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.horizontal-scroll-gallery::-webkit-scrollbar {
+  height: 8px;
+}
+.horizontal-scroll-gallery::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+.horizontal-scroll-gallery::-webkit-scrollbar-thumb {
+  background: #ff758f;
+  border-radius: 10px;
+}
+.horizontal-scroll-gallery::-webkit-scrollbar-thumb:hover {
+  background: #e63946;
+}
+
+.gallery-photo-card {
+  flex: 0 0 auto;
+  height: 350px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+  scroll-snap-align: center;
+  background: #2b262d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-photo-card img {
+  height: 100%;
+  width: auto;
+  max-width: 85vw;
+  object-fit: contain;
+  display: block;
+}
+
+.single-floating-photo {
+  width: 100%;
+  max-width: 380px;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  margin-top: 8px;
+  background: #000;
+}
+.single-floating-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
